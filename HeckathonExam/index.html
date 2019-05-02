@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnJs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel='manifest' href="./manifest.json">
+   <style>
+          select,option {
+             padding-left: 97px;
+             border-radius: 10px;
+           }
+   </style>
+</head>
+<body  style="margin:0px;padding:0px;">
+
+    <!-- THIS IS NAVBAR -->
+<section id="homeNavbar"  >
+     <div style="position:fixed;background:dodgerblue;display:flex;justify-content: center;color:white;line-height: 75px;width:100%;
+        font-size: 20px;font-family: serif; z-index: 1;flex-wrap: wrap;">
+              <div style="position:absolute;top:4px;left:30px;font-size: 15px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    <img src="logo.png" id="profImg" style="width:65px;height:65px;border-radius: 50%;"/>
+                    <span                 id="profName" style="position:relative;top:-12px;">olx.com</span>
+              </div>
+
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <div>
+                    <input id="searchInp" type="text" style="padding:0px -15px;border:4px solid white;width: 240px;color:black;outline:none;" placeholder="Search product" >
+                      <i onClick="searchProduct()"  style="font-size:35px;position: relative;top:7px;cursor: pointer;" class="fa fa-search" aria-hidden="true"></i>
+                 </div>
+
+                    &nbsp;&nbsp;   &nbsp;&nbsp;
+
+                <div>
+                    <span class="buyerBtn"   onClick="buyers()"
+                    style="background:rgba(238, 163, 2, 0.87);color:white;font-size: 18px;padding: 7px 8px;border-radius: 5px;box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5);
+                    cursor: pointer;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Buyers</span>
+                </div>
+                    &nbsp;&nbsp;   &nbsp;
+
+
+                 <div onClick='entryPage()' style="cursor: pointer;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                        SignIn
+                   </div>
+                   &nbsp;&nbsp;   &nbsp;&nbsp;   &nbsp;&nbsp;
+                   <div onClick='sellForm()' class="LObtn" style="cursor: pointer;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 15px;">
+                      Sell Product
+                   </div>
+               &nbsp;&nbsp;   &nbsp;&nbsp;   &nbsp;&nbsp;   &nbsp;&nbsp;
+
+
+              <div style="cursor: pointer;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 15px;"
+              onClick="logOut()" class="LObtn">
+                    logOut
+               </div>
+
+        </div>
+</section>
+
+
+
+<!-- THIS IS ENTERY PAGE -->
+ <section    id="entryPage" style="cursor: pointer;display:none;position:fixed;height:100vh;width:100%;background:rgba(0,0,0,0.5);z-index: 1;">
+   <br><br><br><br><br><br><br>
+<div style="height:45vh;background:white;text-align:center;width:40%;margin-left:30%;border-radius: 5px;">
+    <div style="color:lightslategray;text-align: left;">
+        <strong  onClick="clearEntry()" style="margin-left:5px;;cursor: pointer;font-family:Verdana, Geneva, Tahoma, sans-serif;">X</strong>
+    </div>
+    <br><br>
+    <div><button onClick="signInPage()" style="padding:14px 110px; ">signIn</button></div><br>
+    <div><button onClick="sUPage()" style="padding:14px 110px; ">signUp</button> </div><br>
+    <div><button onClick="" style="padding:14px 73px;background:rgb(12, 12, 99);color:white;
+        border:none; ">logIN with Facebook</button> </div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+<!-- OLX LOGO DIV -->
+<section id="olxLogo"  >
+    <br><br><br><br><br>
+    <img src="olx.jfif" style="width:100%;height:50vh;box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4);">
+</section>
+
+
+
+<!-- THIS IS SIGNIN BLOCK -->
+<div id="siPage" style="z-index: 1;display:none;left:0px;top:0px; cursor: pointer;position:fixed;height:100vh;width:100%;background:rgba(0,0,0,0.7);">
+    <br><br> <br><br><br><br>
+    <h2 onClick="clearSIPage()"  style=" cursor:pointer;color:white;font-family:Verdana, Geneva, Tahoma, sans-serif;margin-left:38px;">X</h2>
+    <h1 style="text-align:center;color:white;">SIGN IN</h1>
+    <div style="display:flex;background: yellow;justify-content: center;
+    justify-content: center;">
+    <div><br>
+        <input type="text"     id="email"       placeholder="Enter email" style="width:350px;outline: none;"><br><br>
+        <input type="password" id="password"    placeholder="Enter password" style="width:350px;outline: none;"><br><br>
+        <input type="button"   onClick="signIn() " value="SIGN IN" style=" cursor: pointer;width:350px;background: dodgerblue;color:white;font-size: 12px;">
+        <br><br><br>
+    </div>
+
+</div>
+</div>
+
+
+
+<!-- THIS IS SIGNUP BLOCK -->
+<div id="sUPage"  style="z-index: 1;display:none;background:rgba(0,0,0,0.7);left:0px;top:0px;position:fixed;height:100vh;width:100%;">
+    <br><br><br><br><br><br>
+    <h2 onClick="clearSUPage()" style=" cursor:pointer;color:white;font-family:Verdana, Geneva, Tahoma, sans-serif;margin-left:38px;">X</h2>
+        <h1 style="text-align:center;color:white;">SIGN UP</h1>
+        <div style="display:flex;justify-content: center;background:yellow;
+        justify-content: center;">
+          <div>
+              <br>
+            <input type="text"     id="name" placeholder="Enter name" style="width:300px;outline: none; "><br><br>
+            <input type="text"     id="emails" placeholder="Enter email" style="width:300px;outline: none;"><br><br>
+            <input type="password" id="passwords" placeholder="Enter password" style="width:300px;outline: none;"><br><br>
+            <input type="file"     id="img"  style="width:300px;outline: none;"><br><br>
+
+            <input type="button"   id="sUPbtn"  onClick="signUp()"  value="SIGN UP" hover="opacity:0.5;" style="width:300px;
+            cursor:pointer;background: dodgerblue;color:white;font-size: 12px;outline: none;">
+            <br><br>
+          </div>
+
+        </div>
+ </div>
+
+
+
+<!-- THIS IS SELL PANEL -->
+<div id="sellPanel"  style="display:none;background:rgba(0,0,0,0.7);left:0px;top:0px;position:fixed;height:100vh;width:100%;z-index: 1;">
+        <br><br><br><br>
+        <h2 onClick="clearSellForm()" style="cursor:pointer;color:white;font-family:Verdana, Geneva, Tahoma, sans-serif;margin-left:38px;">X</h2>
+            <h1 style="text-align:center;color:white;">Sell Panel</h1>
+            <div style="display:flex;justify-content: center;background:yellow;
+            justify-content: center;">
+              <div>
+                  <br>
+                <select id="sectionVal" style="height:35px;border-radius: 20px;width: 300px;outline: none; ">
+                    <option style="color:lightgray;" >Product Catagery</option>
+                    <option value="Car">Car</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Shoes">Shoes</option>
+                    <option value="Bikes">Bikes</option>
+                    <option value="Generators">Generators</option>
+                    <option value="Machines">Machines</option>
+                    <option value="Electronics">Electronics</option>
+                </select><br><br>
+                <!-- <input type="selector" id="productCatagery"     placeholder="Slelect product Catagery" style="width:300px;outline: none; "><br><br>      -->
+                <input type="text"     id="productName"     placeholder="Enter product name" style="width:300px;outline: none; "><br><br>
+                <input type="text"     id="price"       placeholder="Enter price" style="width:300px;outline: none;"><br><br>
+                <input type="number"   id="phoneNumber" placeholder="Enter Phone Number" style="width:300px;outline: none;"><br><br>
+                <input type="file"     id="picture"        value='add image' style="width:300px;outline: none;"><br><br>
+
+                <input type="button"   id="sUPbtn"  onClick="sendProduct()"  value="Send" hover="opacity:0.5;" style="width:300px;
+                cursor:pointer;background: dodgerblue;color:white;font-size: 12px;outline: none;">
+                <br><br>
+              </div>
+
+            </div>
+     </div>
+
+
+<!-- PRODUCT SECTION -->
+<section id="productDisplayBlock" >
+<div id="block1" style="margin-left:5%;">
+<h1 style="text-align:center;text-transform: uppercase;">products List </h1>
+
+<div id="productSearchBlock" style="display:flex;flex-direction:column;text-align:center;justify-content:center;">
+</div>
+<div id="productBlock" style="display:flex;flex-direction:column;text-align:center;justify-content:center;">
+
+ </div>
+
+</div>
+<br><br><br><br><br><br>
+</section>
+
+
+
+
+
+
+
+
+<!-- PHONE BLOCK -->
+<section    id="phoneBlock" style="display:none;cursor: pointer;position:fixed;height:110vh;width:100%;background:rgba(0,0,0,0.5);
+z-index: 1;">
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <div style="border-radius: 8px;height:30vh;background:white;text-align:center;width:60%;margin-left:20%;">
+
+        <div style="text-align: left;">
+                <i onClick="clearPhoneBlock()" style="margin-left:4px;color: rgba(12,12,99);font-size: 18px;" class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <br><br>
+        <div><button onClick="" style="padding:14px 10px;background:rgb(12, 12, 99);color:white;width: 59%;border-radius: 5px;font-size: 16px;
+            border:none; ">Phone</button> </div>
+            <br>
+        <div><button onClick="" style="padding:14px 10px;background:rgb(12, 12, 99);color:white;width: 59%;border-radius: 5px;font-size: 15px;
+            border:none; "><i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp;<span>03341828064</span></button> </div>
+
+    </div>
+
+ </section>
+
+
+
+
+<!-- CHAT SECTION -->
+<section id="chatSectionBlock" style="display:none;" >
+
+    <div style="position:fixed;background:dodgerblue;display:flex;justify-content: center;color:white;line-height: 62px;width:100%;top: 0;
+    font-size: 20px;font-family: serif; z-index: 2;box-shadow: 0px 2px 2px  rgba(0, 0, 0, 0.5);">
+
+
+            <i  style="position :absolute;top:15px;left:3px;font-size: 20px;cursor: pointer;" onClick="backHome()" class="fa fa-arrow-left" aria-hidden="true"></i>
+
+
+          <div style="position:absolute;top:8px;left:34px;font-size: 15px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                <img src="sufyan.jpg" id="chatUserImg" style="width:39px;height:39px;border-radius: 50%;"> </img>
+                <span                 id="chatUserName" style="position:relative;top:-12px;">noor ul huda</span>
+          </div>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;
+             &nbsp;&nbsp;   &nbsp;&nbsp;   &nbsp;&nbsp;   &nbsp;&nbsp;  &nbsp;&nbsp; &nbsp;&nbsp;
+          <div style="cursor: pointer;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 15px;">
+              freinds
+              &nbsp;&nbsp;
+          </div>
+
+          <div style="cursor: pointer;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 15px;">
+            <i onClick="showPhoneBlock()" class="fa fa-phone" aria-hidden="true" style="font-size: 23px;"></i>
+          </div>&nbsp;&nbsp;
+          <div style="cursor: pointer;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 15px;">
+               logOut
+          </div>
+
+   </div>
+
+
+
+    <div  style="background:rgba(255, 255, 255, 0.9);margin-top: -25px;padding-bottom: 90px;width: 100%;height: 100vh;">
+
+
+        <br><br>
+        <br><br>
+        <br>
+
+<div style="background: white;position: fixed;width: 98%;z-index: 2px;font-family: Arial, Helvetica, sans-serif;font-size: 18px;
+box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.3);margin-left:  1%;border-radius: 5px;font-weight: bold;">
+       <table>
+           <tr>
+               <td><img  id="productImg" src="back.jpeg" style="width:120px;height:80px;border-radius: 5px;margin-bottom: -3px;" > </td>
+               <td></td><td></td><td></td>
+               <td  id="productsName" style="position: relative;top:-13px;">DETAILS</td>
+               <td    style="position: relative;top:-13px;">With Quality</td>
+               <td id="productPrice" style="color: lightgray;position: relative;left: -199px;top: 10px;font-weight: normal;font-size: 22px;">Rs,7000</td>
+           </tr>
+       </table>
+</div>
+<br><br><br><br><br><br>
+
+<div id="userChatData">
+
+        <!-- <h5 style="text-align:left;margin-bottom: -6px;"> <span style="background: rgb(9, 9, 126);padding:9px 16px;
+            color:white;margin-left: 50px;border-radius: 10px;box-shadow:  3px 3px  rgba(0, 0, 0, 0.5);display:block;width: 150px;margin-bottom:11px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;float: left;">Iam good</span> </h5><br><br>
+
+        <h5 style="text-align:left;margin-bottom: -6px;"> <span style="background: rgb(9, 9, 126);padding:9px 16px;
+            color:white;margin-left: 50px;border-radius: 10px;box-shadow:  3px 3px  rgba(0, 0, 0, 0.5);display:block;width: 150px;margin-bottom:11px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;float: left;">Iam good</span>
+         <span style="color : rgb(5, 5, 112) ;font-family: 'Courier New', Courier, monospace;position: relative;left:7px;top: 10px;">12:02pm</span>
+        </h5><br><br>
+
+        <h5 style="text-align:left;margin-bottom: -6px;"> <span style="background: rgb(9, 9, 126);padding:9px 16px;
+            color:white;margin-left: 50px;border-radius: 10px;box-shadow:  3px 3px  rgba(0, 0, 0, 0.5);display:block;width: 150px;margin-bottom:11px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;float: left;">Iam good</span> </h5><br><br>
+
+
+
+
+    <h5 style="text-align:right;margin-bottom: -6px;">
+            <span style="color : green ;font-family: 'Courier New', Courier, monospace;position: relative;left:-4px;top: 10px;">12:02pm</span>
+            <span style="background: green;padding:9px 16px;box-shadow:  4px 4px  rgba(0, 0, 0, 0.5);text-align: left;
+            color:white;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:block;width: 150px;margin-bottom:11px;
+            margin-right: 50px;border-radius: 10px;float: right;
+            ">Assalam u Alaikumn</span>
+        </h5><br><br>
+
+        <h5 style="text-align:right;margin-bottom: -6px;">
+                <span style="background: green;padding:9px 16px;box-shadow:  4px 4px  rgba(0, 0, 0, 0.5);text-align: left;
+                color:white;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; display:block;width: 150px;margin-bottom:11px;
+                margin-right: 50px;border-radius: 10px;float: right;
+                ">Assalam u Alaikumn</span>
+            </h5><br><br> -->
+
+
+
+
+</div>
+
+
+       <div style="position:fixed;background: rgb(16, 126, 236);width: 100%;text-align: center;line-height: 35px;
+       top:93vh;padding: 3px 5px;">
+
+            <input type="text" id="message" placeholder="Enter text" style="width:250px;outline: none;line-height: 37px; ">
+
+              <!-- ================ button1 =============================  -->
+            <button id="chatBtn1" class="btn1" style="border:none;width:44px;height:34px;border-radius:50%;
+              outline: none;background: inherit;box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.5);
+              color:white;cursor:pointer;
+              "><i   onClick="sendMessage()"    style="font-size:18px;" class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+            <!-- ================ button2 =============================  -->
+            <button id="chatBtn2" class="btn2" style="border:none;width:44px;height:34px;border-radius:50%;
+              outline: none;background: green;box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.5);
+              color:white;cursor:pointer;
+              "><i   onClick="recieverSending()"    style="font-size:18px;" class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+
+           <br><br>
+       </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- MY ADDS BLOCK CODE -->
+<section id="buyers" style="display:none;">
+        <div style="position:fixed;background:dodgerblue;display:flex;justify-content: center;color:white;line-height: 62px;width:100%;top: 0;
+        font-size: 20px;font-family: serif; z-index: 2;box-shadow: 0px 2px 2px  rgba(0, 0, 0, 0.5);">
+
+                <i  style="position :absolute;top:15px;left:3px;font-size: 20px;cursor: pointer;" onClick="backHomeFromBuyers()" class="fa fa-arrow-left" aria-hidden="true"></i>
+                <div style="font-size: 23px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                   My  Products
+                </div>
+            </div>
+            
+            
+            
+            <br><br> <br><br> <br><br>
+            
+    <div id="buyersDisplay" style="background:rgba(255, 255, 255, 0.9);margin-top: -25px;padding-bottom: 90px;width: 100%;height: 100vh;">
+                    
+                      <h2 style="display:block;position:absolute;top: 100px;left: 500px;">No buyer</h2>
+    <div style="background: white;position: fixed;width: 98%;z-index: 2px;font-family: Arial, Helvetica, sans-serif;font-size: 18px;
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.3);margin-left:  1%;border-radius: 5px;font-weight: bold;">
+           <table>
+               <tr>
+                   <td><img  id="productImg" src="back.jpeg" style="width:90px;height:60px;border-radius: 5px;margin-bottom: -3px;" > </td>
+                   <td></td><td></td><td></td>
+                   <td  id="productsName" style="position: relative;top:-13px;">Yasir Khan</td>
+               </tr>
+           </table>
+    </div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

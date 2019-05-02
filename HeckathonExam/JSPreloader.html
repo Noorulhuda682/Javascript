@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0px;background: black;
+    }
+    #percentage{
+        font-size: 45px;
+        font-family: arial;
+        margin-top: 110px; 
+        width: 100;
+        text-align: center;
+        color: rgb(25, 211, 25);
+    }
+    #loader{
+        width: 400px;
+        background: rgb(54, 48, 48);
+        border-radius: 15px;
+        margin: 20px auto;
+        height: 24px;
+        padding: 4px;
+        /* box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.4); */
+    }
+    #runner{
+        width: 25px; /* =========== 500 is ok ============== */
+        background: rgb(25, 211, 25);
+        height: 24px;
+        border-radius: 13px;
+    }
+
+    </style>
+</head>
+<body>
+
+
+<!-- ==========================  HTML  ================================= -->
+<div id="percentage"> 0%</div> 
+<div id="loader">
+    <div id="runner"></div>
+</div>
+
+
+<!-- ==========================  JAVASCRIPT  ================================= -->
+<script>
+
+function starter(){
+var percentage = document.getElementById('percentage');
+var success = document.getElementById('runner');
+var successCounter = 0 ;
+var percCounter = 0;
+setInterval(repeater,80);
+
+function repeater(){
+    if( percCounter == 105 && successCounter == 420){
+             return false;
+    }
+    else{
+        percentage.innerHTML = '....'+percCounter + '%' ;
+        success.style.width  = successCounter + 'px' ;
+        percCounter = percCounter + 5 ;
+        successCounter = successCounter + 20; 
+    }
+
+
+}
+
+
+}
+
+starter();
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

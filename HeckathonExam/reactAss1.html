@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+<h1 style="margin: 0px auto;">React Assingment 1 
+
+    <p>About Some progarms</p>
+</h1>
+
+    
+    <script>
+
+// ==================    Q1    ========================== Sorting array elements
+// ==================    Ans   =================================//
+// function recieve(a){
+//     console.log(a);
+//     var counter;
+//     var copy;
+//     for(var i = 0; i < a.length; i++){
+     
+//        for(var x=0; x < a.length-i; x++) 
+//          if(a[x] > a[x+1]){
+//                copy = a[x];
+//                a[x] = a[x+1]; 
+//                a[x+1] = copy; 
+//          }     
+ 
+//        }
+//     return a;
+// }
+// var unSortedArray = [56,55,7,24,3,123,345,44];
+// var sortedArray = recieve(unSortedArray);
+// console.log(sortedArray);
+
+
+
+// ==================    Q2    ==========================//
+// ==================    Ans   =================================//
+// var s = prompt('Enter a word');
+// // var s = "madame";
+// var flag = false;
+// for(var i=0; i < s.length; i++){
+//       var before = s.slice(0,i);
+//       var reverse = "";
+//     for(i = 0; i < before.length; i++){
+//          reverse += s[ (before.length -1)-i];
+//     }
+
+//     var after = s.slice(i+1);
+//     if(reverse == after){
+//      console.log("The word is palindrome");
+//      flag = true;
+//    }
+//    if(flag == false && i == s.length-1){
+//    alert("the word is Not palindrome");
+//    }
+
+// }
+
+
+
+// ==================    Q3    ==========================//
+// var arr = [
+// {name: 'Asher', age: 22},
+// {name: 'Zubair', age: 20},
+// {name: 'Kashif', age: 23},
+// {name: 'Wasif', age: 17},
+// {name: 'Hanzala', age: 28}
+// ];
+// ==================    Ans   =================================//
+// console.log(arr.length);
+//     arr[3] = {name: 'Siddiq', age: 23};
+//     arr.push({name: 'Umair', age: '23'} ); 
+// for(var i = 0; i < arr.length; i++){
+//     arr[i] = arr[i+1];
+   
+// }
+// alert(arr[0].name);
+// console.log(arr[0].name)
+// console.log(arr.length);
+
+
+
+
+// ==================    Q4    ==========================//
+// var arr = [
+// {name: 'Asher', age: 22},
+// {name: 'Zubair', age: 20},
+// {name: 'Kashif', age: 23},
+// {name: 'Wasif', age: 17},
+// {name: 'Hanzala', age: 28}
+// ];
+// ==================    Ans   =================================//
+// for(var i = 0; i < arr.length; i++){
+//     if(arr[i].age >= 18 && arr[i].age <= 28 ){
+//         for(var x = 0; x < arr[i].name.length; x++){
+//               if( arr[i].name[x] == 'f' ){
+//                        alert(arr[i].name);
+//               }
+//         }
+//     }
+// }
+
+
+
+// ==================    Q5   ==========================//
+// function greet (person) {
+//    if(person == { name: 'amy' }) {
+//        return 'hey amy'
+//    } 
+//    else {
+//    return 'hey arnold'
+//    }
+// }
+// greet({ name: 'amy' } )
+// ==================    Ans   =================================//
+// This program returns 'hey arnold' because in the person there is not { name: 'amy' } But there is [object][object] which is false condition
+
+
+
+// ==================    Q6   ==========================//
+// for (var i = 0; i < 4; i++) {
+// setTimeout(() => console.log(i), 0)
+// }
+// ==================    Ans   =================================//
+// There setTimeout() runs in running for loop ends in result it just display 4 index 4 times
+
+
+
+
+// ==================    Q8   =================================//
+// I want this code to log out "doggo", but it logs out undefined!
+// let dog = {
+// name: 'doggo',
+// sayName () {
+// console.log(this.name)
+// }
+// }
+// let sayName = dog.sayName
+// sayName()
+// ==================    Ans   =================================//
+// It giving you Undefined because sayName() has not stored in the Constructor function property
+
+
+
+// ==================    Q9   =================================//
+// ==================    Ans   =================================//
+// Why does this code return the results that it does?
+// function isBig (thing) {
+// if (thing == 0 || thing == 1 || thing == 2) {
+// return false
+// }
+// return true
+// }
+// isBig(1) // false
+// isBig([2]) // false
+// isBig([3]) // true
+// ==================    Ans   =================================//
+// Because index 3 is not present in if condition which in result leave the if Cond return runs outer reurn
+
+
+
+
+// ==================    Q9   =================================//
+// Why & How var num =5; ++nums + nums-- + --nums + --nums + nums == 22 ?
+// ANS ====>  var num =5;   6   +   6    +    4   +    3   +  3   == 22
+
+
+
+
+// Q1) Render these into component:
+const name = "Hello World";
+const obj = {name: "Hello World Object"}
+const data = ['We', 'are', 'United'] //Show these in seperate tags
+
+const list = [{name: "Hello World 1"}, {name: "Hello World 2"}, {name: "Hello World 3"}] //Show these in seperate tags
+const complex = [
+                    {company: 'XYZ', jobs: ['Javascript,' ,'React']}
+                  , {company: 'ABC', jobs: ['AngularJs' ,'Ionic']}
+                ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
